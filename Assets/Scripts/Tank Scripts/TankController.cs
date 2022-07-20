@@ -24,7 +24,9 @@ namespace Game
 
         Rigidbody rb;
         TankInputs input;
-        private Vector3 finalTurretLookDir;
+        private Vector3 actualRotation;
+
+        bool canRotate = true;
 
         private void Start()
         {
@@ -32,12 +34,16 @@ namespace Game
             input = GetComponent<TankInputs>();
         }
 
+        private void Update()
+        {
+            HandleTorret();
+        }
+
         private void FixedUpdate()
         {
             if (rb && input)
             {
                 HandleMovement();
-                HandleTorret();
                 HandleReticle();
             }
         }
@@ -55,13 +61,9 @@ namespace Game
 
         protected virtual void HandleTorret()
         {
-            if (turretTransform)
+            if (Input.GetMouseButtonDown(0) && canRotate)
             {
-                Vector3 turretLookDir = input.ReticlePosition - turretTransform.position;
-                turretLookDir.y = 0f;
-
-                finalTurretLookDir = Vector3.Lerp(finalTurretLookDir, turretLookDir, Time.deltaTime * turretSpeed);
-                turretTransform.rotation = Quaternion.LookRotation(finalTurretLookDir);
+                StartCoroutine(RotateTurretTowardsPointCoroutine());
             }
         }
 
@@ -72,7 +74,32 @@ namespace Game
                 reticleTransform.position = input.ReticlePosition;
             }
         }
+
+        IEnumerator RotateTurretTowardsPointCoroutine()
+        {
+            canRotate = false;
+
+            float time = 0.0f;
+
+            Vector3 endRotation = input.ReticlePosition - turretTransform.position; //Setea el punto a rotar
+
+            endRotation.y = 0f;
+
+            while (actualRotation != endRotation)
+            {
+                time += Time.deltaTime * turretSpeed;
+
+                actualRotation = Vector3.Slerp(actualRotation, endRotation, time);
+
+                turretTransform.rotation = Quaternion.LookRotation(actualRotation);
+
+                yield return null;
+            }
+
+            canRotate = true;
+        }
     }
+
 }
 
 

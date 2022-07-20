@@ -2006,7 +2006,7 @@ MonoBehaviour:
   tankRotationSpeed: 60
   reticleTransform: {fileID: 1397342733}
   turretTransform: {fileID: 2461871830020677176}
-  turretSpeed: 0.5
+  turretSpeed: 0.1
 --- !u!114 &2105999251
 MonoBehaviour:
   m_ObjectHideFlags: 0
