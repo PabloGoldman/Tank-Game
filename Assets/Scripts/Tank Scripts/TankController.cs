@@ -24,9 +24,9 @@ namespace Game
 
         Rigidbody rb;
         TankInputs input;
-        private Vector3 actualRotation;
+        private Vector3 actualTurretRotation;
 
-        bool canRotate = true;
+        bool canTurretRotate = true;
 
         private void Start()
         {
@@ -61,7 +61,7 @@ namespace Game
 
         protected virtual void HandleTorret()
         {
-            if (Input.GetMouseButtonDown(0) && canRotate)
+            if (Input.GetMouseButtonDown(0) && canTurretRotate)
             {
                 StartCoroutine(RotateTurretTowardsPointCoroutine());
             }
@@ -77,7 +77,7 @@ namespace Game
 
         IEnumerator RotateTurretTowardsPointCoroutine()
         {
-            canRotate = false;
+            canTurretRotate = false;
 
             float time = 0.0f;
 
@@ -85,18 +85,18 @@ namespace Game
 
             endRotation.y = 0f;
 
-            while (actualRotation != endRotation)
+            while (actualTurretRotation != endRotation)
             {
                 time += Time.deltaTime * turretSpeed;
 
-                actualRotation = Vector3.Slerp(actualRotation, endRotation, time);
+                actualTurretRotation = Vector3.Slerp(actualTurretRotation, endRotation, time);
 
-                turretTransform.rotation = Quaternion.LookRotation(actualRotation);
+                turretTransform.rotation = Quaternion.LookRotation(actualTurretRotation);
 
                 yield return null;
             }
 
-            canRotate = true;
+            canTurretRotate = true;
         }
     }
 
