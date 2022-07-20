@@ -12,6 +12,11 @@ namespace Game
         public float tankSpeed = 15f;
         public float tankRotationSpeed = 20f;
 
+        [Header("Reticle")]
+        public Transform reticleTransform;
+
+        [Header("Turret")]
+        public Transform turretTransform;
 
         Rigidbody rb;
         TankInputs input;
@@ -27,8 +32,12 @@ namespace Game
             if (rb && input)
             {
                 HandleMovement();
+                HandleTorret();
+                HandleReticle();
             }
         }
+
+        //Los hago virtuales ya que si se quisieran hacer mas tipos de movimiento solo tendriamos que heredar de esta clase
 
         protected virtual void HandleMovement()
         {
@@ -37,6 +46,24 @@ namespace Game
 
             Quaternion wantedRotation = transform.rotation * Quaternion.Euler(Vector3.up * input.RotationInput * tankRotationSpeed * Time.deltaTime);
             rb.MoveRotation(wantedRotation);
+        }
+
+        protected virtual void HandleTorret()
+        {
+            if (turretTransform)
+            {
+                Vector3 turretLookDir = input.ReticlePosition - turretTransform.position;
+
+                turretTransform.rotation = Quaternion.LookRotation(turretLookDir);
+            }
+        }
+
+        protected virtual void HandleReticle()
+        {
+            if (reticleTransform)
+            {
+                reticleTransform.position = input.ReticlePosition;
+            }
         }
     }
 }

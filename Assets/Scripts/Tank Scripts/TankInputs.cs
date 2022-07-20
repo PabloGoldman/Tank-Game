@@ -38,25 +38,25 @@ namespace Game
             HandleInputs();
         }
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(reticlePosition, 0.5f);
-        }
+        //private void OnDrawGizmos()
+        //{
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawSphere(reticlePosition, 0.5f);
+        //}
 
         protected virtual void HandleInputs()
         {
-            Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Tira un rayo desde la camara hasta la posicion del mouse
             RaycastHit hit;
 
-            if (Physics.Raycast(screenRay, out hit))
+            if (Physics.Raycast(screenRay, out hit)) //Guarda la data del "golpe"
             {
                 reticlePosition = hit.point;
                 reticleNormal = hit.normal;
             }
                 
-            forwardInput = Input.GetAxis("Vertical");
-            rotationInput = Input.GetAxis("Horizontal");
+            forwardInput = Input.GetAxis("Vertical");  //Seteas el forward input
+            rotationInput = Input.GetAxis("Horizontal"); //Seteas el rotation input
         }
     }
 }
