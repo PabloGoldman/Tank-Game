@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Codigo basado en:
+//https://www.youtube.com/watch?v=Ho6eR5-mfyA&ab_channel=Indie-Pixel
+
 namespace Game
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -17,9 +20,11 @@ namespace Game
 
         [Header("Turret")]
         public Transform turretTransform;
+        public float turretSpeed = 0.5f;
 
         Rigidbody rb;
         TankInputs input;
+        private Vector3 finalTurretLookDir;
 
         private void Start()
         {
@@ -37,7 +42,7 @@ namespace Game
             }
         }
 
-        //Los hago virtuales ya que si se quisieran hacer mas tipos de movimiento solo tendriamos que heredar de esta clase
+        //Los hago virtuales ya que si se quisieran hacer mas tipos de movimiento solo tendriamos que heredar de esta clase y overridear los metodos
 
         protected virtual void HandleMovement()
         {
@@ -53,8 +58,10 @@ namespace Game
             if (turretTransform)
             {
                 Vector3 turretLookDir = input.ReticlePosition - turretTransform.position;
+                turretLookDir.y = 0f;
 
-                turretTransform.rotation = Quaternion.LookRotation(turretLookDir);
+                finalTurretLookDir = Vector3.Lerp(finalTurretLookDir, turretLookDir, Time.deltaTime * turretSpeed);
+                turretTransform.rotation = Quaternion.LookRotation(finalTurretLookDir);
             }
         }
 
