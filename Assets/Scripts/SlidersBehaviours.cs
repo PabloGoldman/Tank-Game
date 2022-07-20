@@ -1,31 +1,36 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlidersBehaviours : MonoBehaviour
+namespace Game
 {
-    ILoaderSaver loaderSaver;
-
-    [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;
-
-    private void Awake()
+    public class SlidersBehaviours : MonoBehaviour  //Interactua con la UI
     {
-        loaderSaver = new AudioSaveLoad();
-    }
+        ILoaderSaver loaderSaver;
 
-    void Start()
-    {
-        float musicVolume;
-        float sfxVolume;
+        [SerializeField] Slider musicSlider;
+        [SerializeField] Slider sfxSlider;
 
-        loaderSaver.GetVolume(out musicVolume, out sfxVolume);
+        private void Awake()
+        {
+            loaderSaver = new AudioSaveLoad();
+        }
 
-        musicSlider.value = musicVolume;
-        sfxSlider.value = sfxVolume;
-    }
+        void Start()
+        {
+            float musicVolume;
+            float sfxVolume;
 
-    private void OnApplicationQuit()
-    {
-        loaderSaver.SetVolume(musicSlider.value, sfxSlider.value);
+            loaderSaver.GetVolume(out musicVolume, out sfxVolume);
+
+            musicSlider.value = musicVolume;
+            sfxSlider.value = sfxVolume;
+        }
+
+        private void OnApplicationQuit()
+        {
+            loaderSaver.SetVolume(musicSlider.value, sfxSlider.value);
+        }
     }
 }
+
+
