@@ -28,7 +28,6 @@ public class InGamePause : MonoBehaviour
     public void Pause()
     {
         Debug.Log("pausa");
-        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
         inGamePause.SetActive(true);
@@ -37,7 +36,6 @@ public class InGamePause : MonoBehaviour
 
     public void Resume()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
         inGamePause.SetActive(false);

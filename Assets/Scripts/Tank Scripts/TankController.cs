@@ -35,7 +35,7 @@ namespace Game
             Vector3 wantedPosition = transform.position + (transform.forward * input.ForwardInput * tankSpeed * Time.deltaTime);
             rb.MovePosition(wantedPosition);
 
-            Quaternion wantedRotation = transform.rotation * Quaternion.Euler(Vector3.up * tankRotationSpeed);
+            Quaternion wantedRotation = transform.rotation * Quaternion.Euler(Vector3.up * input.RotationInput * tankRotationSpeed * Time.deltaTime);
             rb.MoveRotation(wantedRotation);
         }
     }
