@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 170588865}
   - component: {fileID: 170588864}
   - component: {fileID: 170588863}
+  - component: {fileID: 170588867}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -225,6 +226,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &170588867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170588862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cd37161de07c74baf258e3e579faa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 2130707522}
+  sfxSlider: {fileID: 2130707521}
 --- !u!1 &177244382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1115,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 170588867}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSlidersValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.SlidersBehaviours, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1235509855253408574, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
       propertyPath: m_Name
       value: SceneManager
@@ -1846,3 +1889,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2413493677862536888, guid: 0091c56412c02854195201f11907dc52, type: 3}
   m_PrefabInstance: {fileID: 2130707518}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130707521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2413493676255776438, guid: 0091c56412c02854195201f11907dc52, type: 3}
+  m_PrefabInstance: {fileID: 2130707518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2130707522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2413493677006701931, guid: 0091c56412c02854195201f11907dc52, type: 3}
+  m_PrefabInstance: {fileID: 2130707518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

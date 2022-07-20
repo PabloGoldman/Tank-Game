@@ -26,9 +26,14 @@ namespace Game
             sfxSlider.value = sfxVolume;
         }
 
-        private void OnApplicationQuit()
+        public void SetSlidersValue()
         {
             loaderSaver.SetVolume(musicSlider.value, sfxSlider.value);
+        }
+
+        private void OnApplicationQuit()
+        {
+            SetSlidersValue();
         }
     }
 }

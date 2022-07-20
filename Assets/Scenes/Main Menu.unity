@@ -2434,6 +2434,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192572495}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSlidersValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.SlidersBehaviours, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235509855253408561, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
+      propertyPath: onChangeScene.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1235509855253408574, guid: 172c8d792e04fb242a251c756cbe5ef5, type: 3}
       propertyPath: m_Name
       value: SceneManager
