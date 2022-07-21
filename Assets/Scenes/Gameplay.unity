@@ -331,8 +331,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177244382}
-  m_LocalRotation: {x: 0.24938853, y: 0.45902747, z: -0.13594714, w: 0.84179425}
-  m_LocalPosition: {x: -4.3058224, y: 4.863245, z: -2.6154633}
+  m_LocalRotation: {x: -0.266768, y: -0.60550696, z: 0.22574742, w: -0.7150065}
+  m_LocalPosition: {x: -12.301648, y: 8.270131, z: 0.7620082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2356,7 +2356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab008526aea9c2e4b820f91008635eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankSpeed: 10
+  tankSpeed: 5
   tankRotationSpeed: 40
   reticleTransform: {fileID: 1397342733}
   turretTransform: {fileID: 2461871830020677176}
@@ -3030,7 +3030,7 @@ WheelCollider:
   m_Radius: 0.49
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 15000
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 1.93
@@ -3102,7 +3102,7 @@ WheelCollider:
   m_Radius: 0.49
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 15000
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 1.93
@@ -3224,7 +3224,7 @@ WheelCollider:
   m_Radius: 0.49
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 15000
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 1.93
@@ -3273,7 +3273,7 @@ WheelCollider:
   m_Radius: 0.49
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 15000
     targetPosition: 0.5
   m_SuspensionDistance: 0
   m_ForceAppPointDistance: 1.93
