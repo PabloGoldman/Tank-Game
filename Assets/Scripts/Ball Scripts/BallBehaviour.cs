@@ -12,7 +12,9 @@ public class BallBehaviour : MonoBehaviour
 
     private void Start()
     {
-        typeOfMovement = new MoveTowardsTankBehaviour();
+        //typeOfMovement = new MoveTowardsTankBehaviour();
+
+        typeOfMovement = new BounceBehaviour();
     }
 
     private void Update()
