@@ -57,6 +57,7 @@ namespace Game
         protected virtual void HandleMovement()
         {
             Vector3 wantedPosition = transform.position + (transform.forward * input.ForwardInput * tankSpeed * Time.deltaTime);
+
             rb.MovePosition(wantedPosition);
 
             Quaternion wantedRotation = transform.rotation * Quaternion.Euler(Vector3.up * input.RotationInput * tankRotationSpeed * Time.deltaTime);
