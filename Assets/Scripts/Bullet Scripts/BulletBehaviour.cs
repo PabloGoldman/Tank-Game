@@ -6,15 +6,20 @@ public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField] float speed;
 
+    Rigidbody rb;
+
     float lifetime = 2;
 
     private void Awake()
     {
+        rb = GetComponentInChildren<Rigidbody>();
+
         Destroy(gameObject, lifetime);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.position += transform.forward * speed * Time.smoothDeltaTime;
+        //transform.position += transform.forward * speed * Time.smoothDeltaTime;
+        rb.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 }
