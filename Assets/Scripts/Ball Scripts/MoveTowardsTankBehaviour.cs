@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveTowardsTankBehaviour : MonoBehaviour
+public class MoveTowardsTankBehaviour : IMovable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void MoveBehaviour(GameObject tank, GameObject ball, float speed)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ball.transform.position = Vector3.MoveTowards(ball.transform.position, tank.transform.position, speed * Time.deltaTime);
+        Debug.Log("Me muevo");
     }
 }

@@ -331,8 +331,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177244382}
-  m_LocalRotation: {x: 0.27907404, y: 0.43593708, z: -0.14412487, w: 0.8433887}
-  m_LocalPosition: {x: -10.667922, y: 9.300124, z: -6.652678}
+  m_LocalRotation: {x: -0.2298715, y: -0.61644566, z: 0.1947027, w: -0.72749203}
+  m_LocalPosition: {x: -10.021719, y: 5.964506, z: 3.0264597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 839063077}
   - component: {fileID: 839063076}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &944445718
 GameObject:
@@ -1177,7 +1177,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1463487124
 MonoBehaviour:
@@ -2023,7 +2023,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867641216
 GameObject:

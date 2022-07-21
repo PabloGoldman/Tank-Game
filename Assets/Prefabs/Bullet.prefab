@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7063014756557066693}
   m_Layer: 6
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1300fb0bd16d9154c9614fe66327c31a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1300fb0bd16d9154c9614fe66327c31a, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1300fb0bd16d9154c9614fe66327c31a, type: 3}
