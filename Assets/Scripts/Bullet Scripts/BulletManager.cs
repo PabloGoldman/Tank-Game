@@ -23,6 +23,6 @@ public class BulletManager : MonoBehaviour
 
     public void SpawnBullet()
     {
-
+        var bulletInstance = Instantiate(bulletPrefab, spawnPoint);
     }
 }

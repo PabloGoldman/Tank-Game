@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //Codigo basado en:
 //https://www.youtube.com/watch?v=Ho6eR5-mfyA&ab_channel=Indie-Pixel
@@ -11,9 +11,6 @@ namespace Game
     [RequireComponent(typeof(TankInputs))]
     public class TankController : MonoBehaviour
     {
-        
-
-
         [Header("Movement")]
         public float tankSpeed = 15f;
         public float tankRotationSpeed = 20f;
