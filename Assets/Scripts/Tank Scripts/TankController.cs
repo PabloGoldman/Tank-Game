@@ -11,6 +11,9 @@ namespace Game
     [RequireComponent(typeof(TankInputs))]
     public class TankController : MonoBehaviour
     {
+        
+
+
         [Header("Movement")]
         public float tankSpeed = 15f;
         public float tankRotationSpeed = 20f;
@@ -24,7 +27,8 @@ namespace Game
 
         Rigidbody rb;
         TankInputs input;
-        private Vector3 actualTurretRotation;
+
+        private Vector3 actualTurretDirection;
 
         bool canTurretRotate = true;
 
@@ -81,17 +85,19 @@ namespace Game
 
             float time = 0.0f;
 
-            Vector3 endRotation = input.ReticlePosition - turretTransform.position; //Setea el punto a rotar
+            Vector3 turretLookDir = input.ReticlePosition - turretTransform.position; //Setea el punto a rotar
 
-            endRotation.y = 0f;
+            turretLookDir.y = 0f;
 
-            while (actualTurretRotation != endRotation)
+            actualTurretDirection = turretTransform.forward; //Seteo su direccion actual como su forward, a donde esta apuntando
+
+            while (actualTurretDirection != turretLookDir)
             {
                 time += Time.deltaTime * turretSpeed;
 
-                actualTurretRotation = Vector3.Slerp(actualTurretRotation, endRotation, time);
+                actualTurretDirection = Vector3.Slerp(actualTurretDirection, turretLookDir, time);
 
-                turretTransform.rotation = Quaternion.LookRotation(actualTurretRotation);
+                turretTransform.rotation = Quaternion.LookRotation(actualTurretDirection);
 
                 yield return null;
             }
