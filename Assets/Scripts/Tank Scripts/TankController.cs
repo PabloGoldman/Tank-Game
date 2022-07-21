@@ -22,6 +22,8 @@ namespace Game
         public Transform turretTransform;
         public float turretSpeed = 0.5f;
 
+        public UnityEvent onShoot;
+
         Rigidbody rb;
         TankInputs input;
 
@@ -100,6 +102,7 @@ namespace Game
                 yield return null;
             }
 
+            onShoot?.Invoke();
             canTurretRotate = true;
         }
     }

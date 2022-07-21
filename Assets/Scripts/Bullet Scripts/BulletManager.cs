@@ -8,21 +8,8 @@ public class BulletManager : MonoBehaviour
 
     [SerializeField] Transform spawnPoint;
 
-    // Start is called before the first frame update
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SpawnBullet()
     {
-        var bulletInstance = Instantiate(bulletPrefab, spawnPoint);
+        var bulletInstance = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }

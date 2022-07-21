@@ -331,8 +331,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177244382}
-  m_LocalRotation: {x: -0.266768, y: -0.60550696, z: 0.22574742, w: -0.7150065}
-  m_LocalPosition: {x: -12.301648, y: 8.270131, z: 0.7620082}
+  m_LocalRotation: {x: 0.27907404, y: 0.43593708, z: -0.14412487, w: 0.8433887}
+  m_LocalPosition: {x: -10.667922, y: 9.300124, z: -6.652678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4906659931779954094, guid: 2d39ce1ad97f68f4c8f9f1d11aa60545, type: 3}
-  spawnPoint: {fileID: 2032938527}
+  spawnPoint: {fileID: 442916219998310302}
 --- !u!1 &1474318230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,7 +1841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 399.99997, y: -52.44215}
+  m_AnchoredPosition: {x: 400, y: -52.442383}
   m_SizeDelta: {x: 247.4021, y: 45.1157}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1608871276
@@ -2230,51 +2230,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867641216}
   m_CullTransparentMesh: 1
---- !u!1 &2032938526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2032938527}
-  - component: {fileID: 2032938528}
-  m_Layer: 0
-  m_Name: BulletSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2032938527
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032938526}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4315346, y: 0.24227315, z: 1.5666345}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2461871830020677176}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2032938528
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032938526}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13236558, y: 0.118734896, z: 0.09794673}
-  m_Center: {x: 0.4338172, y: 0.043195277, z: 0.059007034}
 --- !u!1 &2047089828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,10 +2262,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankSpeed: 5
-  tankRotationSpeed: 40
+  tankRotationSpeed: 50
   reticleTransform: {fileID: 1397342733}
   turretTransform: {fileID: 2461871830020677176}
   turretSpeed: 0.1
+  onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1463487124}
+        m_TargetAssemblyTypeName: BulletManager, Assembly-CSharp
+        m_MethodName: SpawnBullet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &2047089830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2832,7 +2802,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 442916219998310302}
-  - {fileID: 2032938527}
   m_Father: {fileID: 1575690686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
