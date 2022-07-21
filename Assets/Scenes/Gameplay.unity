@@ -2022,7 +2022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankSpeed: 10
-  tankRotationSpeed: 60
+  tankRotationSpeed: 40
   reticleTransform: {fileID: 1397342733}
   turretTransform: {fileID: 2461871830020677176}
   turretSpeed: 0.1
