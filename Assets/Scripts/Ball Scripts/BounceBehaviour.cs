@@ -4,7 +4,16 @@ namespace Game
 {
     public class BounceBehaviour : IMovable
     {
-        public void MoveBehaviour(GameObject tank, GameObject ball, float speed)
+        GameObject ball; 
+        float speed;
+
+        public BounceBehaviour(GameObject ball, float speed)
+        {
+            this.ball = ball;
+            this.speed = speed;
+        }
+
+        public void MoveBehaviour()
         {
             float y = Mathf.PingPong(Time.time * speed, 3);
 

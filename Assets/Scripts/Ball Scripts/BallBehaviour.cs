@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
@@ -6,29 +7,32 @@ namespace Game
     {
         [SerializeField] GameObject tankObject;
 
-        [SerializeField] float speed;
+        [SerializeField] BallsData data;
 
         IMovable typeOfMovement;
+
+        public UnityEvent onBallDestroy;
 
         private void Start()
         {
             int random = Random.Range(1, 3);
 
             if (random == 1)
-                typeOfMovement = new MoveTowardsTankBehaviour();
+                typeOfMovement = new MoveTowardsTankBehaviour(tankObject, gameObject, data.speedTowardsTank);
             else
-                typeOfMovement = new BounceBehaviour();
+                typeOfMovement = new BounceBehaviour(gameObject, data.upDownSpeed);
         }
 
         private void Update()
         {
-            typeOfMovement.MoveBehaviour(tankObject, gameObject, speed);
+            typeOfMovement.MoveBehaviour();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag == "Bullet")
             {
+                onBallDestroy?.Invoke();
                 collision.gameObject.SetActive(false);
                 Destroy(gameObject);
             }
