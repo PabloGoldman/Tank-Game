@@ -12,9 +12,17 @@ public class BallBehaviour : MonoBehaviour
 
     private void Start()
     {
-        //typeOfMovement = new MoveTowardsTankBehaviour();
+        int random = Random.Range(1, 3);
 
-        typeOfMovement = new BounceBehaviour();
+        if (random == 1)
+        {
+            typeOfMovement = new MoveTowardsTankBehaviour();
+        }
+        else
+        {
+            typeOfMovement = new BounceBehaviour();
+        }
+
     }
 
     private void Update()

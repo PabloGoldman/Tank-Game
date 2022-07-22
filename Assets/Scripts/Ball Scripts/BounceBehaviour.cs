@@ -6,13 +6,8 @@ public class BounceBehaviour : IMovable
 {
     public void MoveBehaviour(GameObject tank, GameObject ball, float speed)
     {
-        float t = 0;
+        float y = Mathf.PingPong(Time.time * speed, 3);
 
-        t += Time.deltaTime;
-
-        Vector3 from = new Vector3(ball.transform.position.x, ball.transform.position.y, ball.transform.position.z);
-        Vector3 to = new Vector3(ball.transform.position.x, ball.transform.position.y + 20, ball.transform.position.z);
-
-        ball.transform.position = Vector3.Lerp(from, to, t);
+        ball.transform.position = new Vector3(ball.transform.position.x, y, ball.transform.position.z);
     }
 }
