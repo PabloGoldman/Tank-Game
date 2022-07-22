@@ -12,6 +12,7 @@ namespace Game
         IMovable typeOfMovement;
 
         public UnityEvent onBallDestroy;
+        public UnityEvent onPlayerCollision;
 
         private void Start()
         {
@@ -35,6 +36,12 @@ namespace Game
                 onBallDestroy?.Invoke();
                 collision.gameObject.SetActive(false);
                 Destroy(gameObject);
+            }
+
+            if (collision.gameObject.tag == "Player")
+            {
+                onPlayerCollision?.Invoke();
+                Debug.Log("choque");
             }
         }
     }
