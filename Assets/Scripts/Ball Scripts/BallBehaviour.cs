@@ -1,41 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BallBehaviour : MonoBehaviour
+namespace Game
 {
-    [SerializeField] GameObject tankObject;
-
-    [SerializeField] float speed;
-
-    IMovable typeOfMovement;
-
-    private void Start()
+    public class BallBehaviour : MonoBehaviour
     {
-        int random = Random.Range(1, 3);
+        [SerializeField] GameObject tankObject;
 
-        if (random == 1)
+        [SerializeField] float speed;
+
+        IMovable typeOfMovement;
+
+        private void Start()
         {
-            typeOfMovement = new MoveTowardsTankBehaviour();
+            int random = Random.Range(1, 3);
+
+            if (random == 1)
+                typeOfMovement = new MoveTowardsTankBehaviour();
+            else
+                typeOfMovement = new BounceBehaviour();
         }
-        else
+
+        private void Update()
         {
-            typeOfMovement = new BounceBehaviour();
+            typeOfMovement.MoveBehaviour(tankObject, gameObject, speed);
         }
 
-    }
-
-    private void Update()
-    {
-        typeOfMovement.MoveBehaviour(tankObject, gameObject, speed);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
+        private void OnCollisionEnter(Collision collision)
         {
-            collision.gameObject.SetActive(false);
-            Destroy(gameObject);
+            if (collision.gameObject.tag == "Bullet")
+            {
+                collision.gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
         }
     }
 }
+

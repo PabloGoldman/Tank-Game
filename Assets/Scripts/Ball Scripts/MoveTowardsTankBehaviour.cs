@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveTowardsTankBehaviour : IMovable
+namespace Game
 {
-    public void MoveBehaviour(GameObject tank, GameObject ball, float speed)
+    public class MoveTowardsTankBehaviour : IMovable
     {
-        ball.transform.position = Vector3.MoveTowards(ball.transform.position, tank.transform.position, speed * Time.deltaTime);
-        Debug.Log("Me muevo");
+        public void MoveBehaviour(GameObject tank, GameObject ball, float speed)
+        {
+            ball.transform.position = Vector3.MoveTowards(ball.transform.position, tank.transform.position, speed * Time.deltaTime);
+            Debug.Log("Me muevo");
+        }
     }
 }
+
+
