@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +28,8 @@ namespace Game
         public void GameOver()
         {
             gameOverPanel.SetActive(true);
+            gameOverPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Score: " + score;
+
             gamePanel.SetActive(false);
             Time.timeScale = 0;
 
