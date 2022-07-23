@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine;
@@ -15,11 +13,10 @@ namespace Game
         TMP_Text textField;
 
         float currentTime = 0;
-        float startingTime = 10;
 
         private void Start()
         {
-            currentTime = startingTime;
+            currentTime = GameManager.Get().gameSettings.startingTime;
             textField = GetComponent<TMP_Text>();
         }
 

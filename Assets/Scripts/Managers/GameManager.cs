@@ -6,6 +6,8 @@ namespace Game
 {
     public class GameManager : MonoBehaviourSingleton<GameManager>
     {
+        public GameSettings gameSettings;
+
         public UnityEvent onScoreChanged;
         public UnityEvent onGameOver;
 
