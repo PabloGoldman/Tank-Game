@@ -26,13 +26,15 @@ namespace Game
 
         public List<HighScoreEntry> highScoreList;
 
+        int maxHighScores = 3;
+
         public void CreateHighScorePanel()
         {
             entryTemplate.gameObject.SetActive(false);
 
             SortHighScores();
 
-            for (int i = 0; i < highScoreList.Count; i++)
+            for (int i = 0; i < maxHighScores; i++)
             {
                 CreateHighScore(highScoreList[i], entryContainer, i + 1);
             }
