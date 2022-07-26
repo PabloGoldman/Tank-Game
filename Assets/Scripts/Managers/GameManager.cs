@@ -44,20 +44,21 @@ namespace Game
             gamePanel.SetActive(false);
             Time.timeScale = 0;
 
+            //PASAR TODO ESTO A UNA FUNCION
+
             HighScoreEntry actualScore = new HighScoreEntry(score); //Le pasamos el score
 
+            highScoreTable.LoadData(saveLoad); //Cargas la lista de highScores
 
-            highScoreTable.LoadData(saveLoad);
-
-            highScoreTable.highScoreList.Add(actualScore); //Lo creo
+            highScoreTable.highScoreList.Add(actualScore); //Le añadis el score a la lista
 
             saveLoad.SaveHighScoresData(highScoreTable.highScoreList); //Guardo la lista
 
-            highScoreTable.LoadData(saveLoad); //Le paso el valor
+            highScoreTable.LoadData(saveLoad); //Volves a cargar la lista
 
             highScoreTable.CreateHighScorePanel();
 
-            //onGameOver?.Invoke();
+            onGameOver?.Invoke();
         }
     }
 }

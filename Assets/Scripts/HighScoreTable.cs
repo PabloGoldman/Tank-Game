@@ -34,7 +34,7 @@ namespace Game
 
             SortHighScores();
 
-            for (int i = 0; i < maxHighScores; i++)
+            for (int i = 0; i < highScoreList.Count && i < maxHighScores; i++) //No puede superar 3, pero tampoco tiene que recorrer 3 si solo hay 1 highScore
             {
                 CreateHighScore(highScoreList[i], entryContainer, i + 1);
             }
