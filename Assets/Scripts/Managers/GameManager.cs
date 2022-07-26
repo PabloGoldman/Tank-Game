@@ -46,13 +46,14 @@ namespace Game
 
             HighScoreEntry actualScore = new HighScoreEntry(score); //Le pasamos el score
 
-            highScoreTable.LoadData(saveLoad);
-            highScoreTable.highScoreList.Add(actualScore);
 
-            saveLoad.SaveHighScoresData(highScoreTable.highScoreList);
+            highScoreTable.LoadData(saveLoad); //Le paso el valor
 
-            highScoreTable.LoadData(saveLoad);
-            highScoreTable.CreateHighScore();
+            highScoreTable.highScoreList.Add(actualScore); //Lo creo
+
+            saveLoad.SaveHighScoresData(highScoreTable.highScoreList); //Guardo el valor
+
+            highScoreTable.LoadData(saveLoad); //Le paso el valor
 
             //onGameOver?.Invoke();
         }

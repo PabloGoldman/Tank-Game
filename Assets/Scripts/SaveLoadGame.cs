@@ -7,6 +7,26 @@ namespace Game
 {
     public class SaveLoadGame
     {
+        public SaveLoadGame()
+        {
+            string path = Application.persistentDataPath + "/TankGame.dat";
+
+            if (!File.Exists(path))
+            {
+                List<HighScoreEntry> tempList = new List<HighScoreEntry>();
+
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                FileStream stream = new FileStream(path, FileMode.Create);
+
+                HighScoresData data = new HighScoresData(tempList);
+
+                formatter.Serialize(stream, data);
+
+                stream.Close();
+            }
+        }
+
         public void SaveHighScoresData(List<HighScoreEntry> highScoreEntryList)
         {
             string path = Application.persistentDataPath + "/TankGame.dat";
