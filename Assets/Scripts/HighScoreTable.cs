@@ -21,44 +21,22 @@ namespace Game
 
     public class HighScoreTable : MonoBehaviour
     {
-        SaveLoadGame saveLoad;
-
         [SerializeField] Transform entryContainer;
         [SerializeField] Transform entryTemplate;
 
-        private List<HighScoreEntry> highScoreList;
+        public List<HighScoreEntry> highScoreList;
 
-        private void Awake()
+        public void LoadData(SaveLoadGame saveLoad)
         {
-            saveLoad = new SaveLoadGame();
-
-            List<HighScoreEntry> highScoreList = saveLoad.LoadHighScoresData().highScores;
-        }
-
-        private void Start()
-        {
+            highScoreList = saveLoad.LoadHighScoresData().highScoreList;
+            
             entryTemplate.gameObject.SetActive(false);
 
-            highScoreList = saveLoad.LoadHighScoresData().highScores;
+            SortHighScores();
 
-            if (highScoreList[0] != null)
+            for (int i = 0; i < highScoreList.Count; i++)
             {
-                SortHighScores();
-
-                for (int i = 0; i < highScoreList.Count; i++)
-                {
-                    CreateHighScore(highScoreList[i], entryContainer, i + 1);
-                }
-            }
-
-            else
-            {
-                HighScoreEntry temp = new HighScoreEntry(0);
-
-                for (int i = 0; i < highScoreList.Count; i++)
-                {
-                    CreateHighScore(temp, entryContainer, i + 1);
-                }
+                CreateHighScore(highScoreList[i], entryContainer, i + 1);
             }
         }
 
@@ -82,14 +60,14 @@ namespace Game
         {
             float templateHeight = 50f;
 
-            Transform entryTransform = Instantiate(entryTemplate, entryContainer); //Creamos un template, hijo del container
+            Transform entryTransform = Instantiate(entryTemplate, container); //Creamos un template, hijo del container
 
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
 
             entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * (pos - 1));
 
             //Agarramos el primer hijo, que es la posicion y le asignamos el valor de su posicion
-            entryTransform.GetChild(0).GetComponent<TMP_Text>().text = pos.ToString(); 
+            entryTransform.GetChild(0).GetComponent<TMP_Text>().text = pos.ToString();
 
             entryTransform.GetChild(1).GetComponent<TMP_Text>().text = entry.score.ToString();
 

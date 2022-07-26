@@ -6,6 +6,8 @@ namespace Game
 {
     public class GameManager : MonoBehaviourSingleton<GameManager>
     {
+        SaveLoadGame saveLoad;
+
         public GameSettings gameSettings;
 
         public UnityEvent onScoreChanged;
@@ -14,11 +16,18 @@ namespace Game
         [SerializeField] GameObject gameOverPanel;
         [SerializeField] GameObject gamePanel;
 
+        [SerializeField] HighScoreTable highScoreTable;
+
         int score;
 
         public int Score
         {
             get { return score; }
+        }
+
+        private void Start()
+        {
+            saveLoad = new SaveLoadGame();
         }
 
         public void AddScore()
@@ -35,7 +44,17 @@ namespace Game
             gamePanel.SetActive(false);
             Time.timeScale = 0;
 
-            onGameOver?.Invoke();
+            HighScoreEntry actualScore = new HighScoreEntry(score); //Le pasamos el score
+
+            highScoreTable.LoadData(saveLoad);
+            highScoreTable.highScoreList.Add(actualScore);
+
+            saveLoad.SaveHighScoresData(highScoreTable.highScoreList);
+
+            highScoreTable.LoadData(saveLoad);
+            highScoreTable.CreateHighScore();
+
+            //onGameOver?.Invoke();
         }
     }
 }

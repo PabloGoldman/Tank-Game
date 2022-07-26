@@ -7,11 +7,11 @@ namespace Game
     [System.Serializable]
     public class HighScoresData
     {
-        public List<HighScoreEntry> highScores;
+        public List<HighScoreEntry> highScoreList;
 
         public HighScoresData(List<HighScoreEntry> highScores)
         {
-            this.highScores = highScores;
+            this.highScoreList = highScores;
         }
     }
 }
