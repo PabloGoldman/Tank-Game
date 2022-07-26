@@ -562,8 +562,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1509025411}
         m_TargetAssemblyTypeName: Game.SceneManager, Assembly-CSharp
-        m_MethodName: ReloadScene
-        m_Mode: 1
+        m_MethodName: ChangeScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3950,7 +3950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.040000003}
   m_AnchorMax: {x: 1, y: 0.15343478}
-  m_AnchoredPosition: {x: 170, y: -2.4737244}
+  m_AnchoredPosition: {x: 170, y: -2.473755}
   m_SizeDelta: {x: -560, y: -3.9447021}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2008778771

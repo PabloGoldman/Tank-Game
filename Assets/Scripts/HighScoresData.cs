@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Game
 {
@@ -11,7 +9,7 @@ namespace Game
 
         public HighScoresData(List<HighScoreEntry> highScores)
         {
-            this.highScoreList = highScores;
+            highScoreList = highScores;
         }
     }
 }

@@ -44,8 +44,13 @@ namespace Game
             gamePanel.SetActive(false);
             Time.timeScale = 0;
 
-            //PASAR TODO ESTO A UNA FUNCION
+            SetHighScores();
 
+            onGameOver?.Invoke();
+        }
+
+        private void SetHighScores()
+        {
             HighScoreEntry actualScore = new HighScoreEntry(score); //Le pasamos el score
 
             highScoreTable.LoadData(saveLoad); //Cargas la lista de highScores
@@ -57,8 +62,6 @@ namespace Game
             highScoreTable.LoadData(saveLoad); //Volves a cargar la lista
 
             highScoreTable.CreateHighScorePanel();
-
-            onGameOver?.Invoke();
         }
     }
 }

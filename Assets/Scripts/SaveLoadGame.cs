@@ -7,9 +7,10 @@ namespace Game
 {
     public class SaveLoadGame
     {
+        string path = Application.persistentDataPath + "/TankGame.dat";
+
         public SaveLoadGame()
         {
-            string path = Application.persistentDataPath + "/TankGame.dat";
 
             if (!File.Exists(path))  //Si no existe, la crea y le da un valor por default
             {
@@ -29,8 +30,6 @@ namespace Game
 
         public void SaveHighScoresData(List<HighScoreEntry> highScoreEntryList)
         {
-            string path = Application.persistentDataPath + "/TankGame.dat";
-
             BinaryFormatter formatter = new BinaryFormatter();
 
             FileStream stream = new FileStream(path, FileMode.Create);
@@ -44,8 +43,6 @@ namespace Game
 
         public HighScoresData LoadHighScoresData()
         {
-            string path = Application.persistentDataPath + "/TankGame.dat";
-
             if (File.Exists(path))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
