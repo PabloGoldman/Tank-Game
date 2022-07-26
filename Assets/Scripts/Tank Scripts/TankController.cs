@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,6 +30,8 @@ namespace Game
 
         private Vector3 actualTurretDirection;
 
+        [SerializeField] Animator[] animator;
+
         bool canTurretRotate = true;
 
         private void Start()
@@ -39,7 +42,8 @@ namespace Game
 
         private void Update()
         {
-            HandleTorret();
+            HandleTurret();
+            HandleAnimations();
         }
 
         private void FixedUpdate()
@@ -63,7 +67,7 @@ namespace Game
             rb.MoveRotation(wantedRotation);
         }
 
-        protected virtual void HandleTorret()
+        protected virtual void HandleTurret()
         {
             if (Input.GetMouseButtonDown(0) && canTurretRotate)
             {
@@ -76,6 +80,24 @@ namespace Game
             if (reticleTransform)
             {
                 reticleTransform.position = input.ReticlePosition;
+            }
+        }
+
+        private void HandleAnimations()
+        {
+            if (input.ForwardInput != 0 || input.RotationInput != 0 || rb.velocity.sqrMagnitude > 0.1f) //Si me muevo manualmente, o si me estoy "cayendo"
+            {
+                foreach (Animator animator in animator)
+                {
+                    animator.SetTrigger("PlayAnim");
+                }
+            }
+            else
+            {
+                foreach (Animator animator in animator)
+                {
+                    animator.SetTrigger("StopAnim");
+                }
             }
         }
 

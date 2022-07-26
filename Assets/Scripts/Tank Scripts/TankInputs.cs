@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
  
 namespace Game
@@ -37,12 +35,6 @@ namespace Game
         {
             HandleInputs();
         }
-
-        //private void OnDrawGizmos()
-        //{
-        //    Gizmos.color = Color.red;
-        //    Gizmos.DrawSphere(reticlePosition, 0.5f);
-        //}
 
         protected virtual void HandleInputs()
         {
