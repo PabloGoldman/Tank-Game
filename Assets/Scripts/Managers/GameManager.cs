@@ -54,6 +54,7 @@ namespace Game
             saveLoad.SaveHighScoresData(highScoreTable.highScoreList); //Guardo el valor
 
             highScoreTable.LoadData(saveLoad); //Le paso el valor
+            highScoreTable.CreateHighScorePanel();
 
             //onGameOver?.Invoke();
         }

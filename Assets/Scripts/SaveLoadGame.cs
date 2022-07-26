@@ -11,7 +11,7 @@ namespace Game
         {
             string path = Application.persistentDataPath + "/TankGame.dat";
 
-            if (!File.Exists(path))
+            if (!File.Exists(path))  //Si no existe, la crea y le da un valor por default
             {
                 List<HighScoreEntry> tempList = new List<HighScoreEntry>();
 

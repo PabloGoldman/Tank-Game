@@ -26,10 +26,8 @@ namespace Game
 
         public List<HighScoreEntry> highScoreList;
 
-        public void LoadData(SaveLoadGame saveLoad)
+        public void CreateHighScorePanel()
         {
-            highScoreList = saveLoad.LoadHighScoresData().highScoreList;
-            
             entryTemplate.gameObject.SetActive(false);
 
             SortHighScores();
@@ -38,6 +36,11 @@ namespace Game
             {
                 CreateHighScore(highScoreList[i], entryContainer, i + 1);
             }
+        }
+
+        public void LoadData(SaveLoadGame saveLoad)
+        {
+            highScoreList = saveLoad.LoadHighScoresData().highScoreList;
         }
 
         private void SortHighScores()
