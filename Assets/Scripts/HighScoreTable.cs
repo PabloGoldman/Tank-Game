@@ -30,15 +30,9 @@ namespace Game
 
         private void Awake()
         {
-            List<HighScoreEntry> highScoreList = new List<HighScoreEntry> {
-                new HighScoreEntry(1),
-                new HighScoreEntry(2),
-                new HighScoreEntry(3)
-            };
+            saveLoad = new SaveLoadGame();
 
-            saveLoad = new SaveLoadGame(highScoreList);
-
-            saveLoad.SaveHighScoresData();
+            List<HighScoreEntry> highScoreList = saveLoad.LoadHighScoresData().highScores;
         }
 
         private void Start()
@@ -47,11 +41,24 @@ namespace Game
 
             highScoreList = saveLoad.LoadHighScoresData().highScores;
 
-            SortHighScores();
-
-            foreach (HighScoreEntry highScoreEntry in highScoreList)
+            if (highScoreList[0] != null)
             {
-                CreateHighScore(highScoreEntry, entryContainer, highScoreList);
+                SortHighScores();
+
+                for (int i = 0; i < highScoreList.Count; i++)
+                {
+                    CreateHighScore(highScoreList[i], entryContainer, i + 1);
+                }
+            }
+
+            else
+            {
+                HighScoreEntry temp = new HighScoreEntry(0);
+
+                for (int i = 0; i < highScoreList.Count; i++)
+                {
+                    CreateHighScore(temp, entryContainer, i + 1);
+                }
             }
         }
 
@@ -71,19 +78,19 @@ namespace Game
             }
         }
 
-        private void CreateHighScore(HighScoreEntry entry, Transform container, List<HighScoreEntry> highScoreList)
+        private void CreateHighScore(HighScoreEntry entry, Transform container, int pos)
         {
-            int pos = highScoreList.Count + 1;
-
             float templateHeight = 50f;
 
             Transform entryTransform = Instantiate(entryTemplate, entryContainer); //Creamos un template, hijo del container
 
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
 
-            entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * highScoreList.Count);
+            entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * (pos - 1));
 
-            entryTransform.GetChild(0).GetComponent<TMP_Text>().text = pos.ToString(); //Agarramos el primer hijo, que es la posicion y le asignamos el valor de su posicion
+            //Agarramos el primer hijo, que es la posicion y le asignamos el valor de su posicion
+            entryTransform.GetChild(0).GetComponent<TMP_Text>().text = pos.ToString(); 
+
             entryTransform.GetChild(1).GetComponent<TMP_Text>().text = entry.score.ToString();
 
             entryTransform.gameObject.SetActive(true);

@@ -7,16 +7,9 @@ namespace Game
 {
     public class SaveLoadGame
     {
-        private List<HighScoreEntry> highScoreEntryList;
-
         string path = Application.persistentDataPath + "/TankGame.dat";
 
-        public SaveLoadGame(List<HighScoreEntry> highScoreEntryList)
-        {
-            this.highScoreEntryList = highScoreEntryList;
-        }
-
-        public void SaveHighScoresData()
+        public void SaveHighScoresData(List<HighScoreEntry> highScoreEntryList)
         {
             BinaryFormatter formatter = new BinaryFormatter();
 
