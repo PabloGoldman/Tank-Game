@@ -9,6 +9,7 @@ namespace Game
     public class CountdownTimer : MonoBehaviour
     {
         public UnityEvent onReachTime;
+        public UnityEvent onTimeDown;
 
         TMP_Text textField;
 
