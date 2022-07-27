@@ -2,6 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+//AÑADIR PARTICULAS AL DISPARAR, AL MOVERSE ETC
+//AÑADIR ANIMACIONES A LA UI
+
 namespace Game
 {
     public class GameManager : MonoBehaviourSingleton<GameManager>
