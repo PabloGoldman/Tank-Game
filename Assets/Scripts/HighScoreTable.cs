@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,10 +25,19 @@ namespace Game
 
         public List<HighScoreEntry> highScoreList;
 
+        List<Transform> entryTransformList = new List<Transform>();
+
         int maxHighScores = 3;
+
+        private void Start()
+        {
+
+        }
 
         public void CreateHighScorePanel()
         {
+            DestroyHighScoreTemplates();
+
             entryTemplate.gameObject.SetActive(false);
 
             SortHighScores();
@@ -77,7 +85,21 @@ namespace Game
             entryTransform.GetChild(1).GetComponent<TMP_Text>().text = entry.score.ToString();
 
             entryTransform.gameObject.SetActive(true);
+
+            entryTransformList.Add(entryTransform);
         }
+
+        public void DestroyHighScoreTemplates()
+        {
+            if (entryTransformList.Count > 0)
+            {
+                foreach (Transform transform in entryTransformList)
+                {
+                    Destroy(transform.gameObject);
+                }
+            }
+        }
+
     }
 
 
