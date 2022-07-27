@@ -2,9 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-//AÑADIR PARTICULAS AL DISPARAR, AL MOVERSE ETC
-//AÑADIR ANIMACIONES A LA UI
-
 namespace Game
 {
     public class GameManager : MonoBehaviourSingleton<GameManager>
@@ -20,6 +17,13 @@ namespace Game
         [SerializeField] GameObject gamePanel;
 
         [SerializeField] HighScoreTable highScoreTable;
+
+        bool inEndGameScreen;
+
+        public bool InEndGameScreen
+        {
+            get { return inEndGameScreen; }
+        }
 
         int score;
 
@@ -41,6 +45,8 @@ namespace Game
 
         public void GameOver()
         {
+            inEndGameScreen = true;
+
             gameOverPanel.SetActive(true);
             gameOverPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Score: " + score;
 
