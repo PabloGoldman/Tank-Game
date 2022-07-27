@@ -31,6 +31,8 @@ namespace Game
 
         [SerializeField] Animator[] animator;
 
+        [SerializeField] ParticleSystem shootFlash;
+
         bool canTurretRotate = true;
 
         private void Start()
@@ -123,6 +125,7 @@ namespace Game
                 yield return null;
             }
 
+            shootFlash.Play();
             onShoot?.Invoke();
             canTurretRotate = true;
         }

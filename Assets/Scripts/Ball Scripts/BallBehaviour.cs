@@ -41,7 +41,6 @@ namespace Game
             if (collision.gameObject.tag == "Player")
             {
                 onPlayerCollision?.Invoke();
-                Debug.Log("choque");
             }
         }
     }
