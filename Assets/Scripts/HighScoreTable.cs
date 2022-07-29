@@ -29,11 +29,6 @@ namespace Game
 
         int maxHighScores = 3;
 
-        private void Start()
-        {
-
-        }
-
         public void CreateHighScorePanel()
         {
             DestroyHighScoreTemplates();
