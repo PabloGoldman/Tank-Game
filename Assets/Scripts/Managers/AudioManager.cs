@@ -6,7 +6,6 @@ namespace Game
     {
         [SerializeField] AudioSource shootSound;
         [SerializeField] AudioSource buttonSound;
-        [SerializeField] AudioSource gameOverSound;
 
         public void PlayShootSound()
         {
@@ -16,11 +15,6 @@ namespace Game
         public void PlayButtonSound()
         {
             buttonSound.Play();
-        }
-
-        public void PlayGameOverSound()
-        {
-            gameOverSound.Play();
         }
     }
 }
