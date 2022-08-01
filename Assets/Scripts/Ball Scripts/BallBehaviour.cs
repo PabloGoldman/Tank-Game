@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
@@ -7,6 +8,8 @@ namespace Game
         [SerializeField] GameObject tankObject;
 
         [SerializeField] BallsData data;
+
+        public UnityEvent onDestroyBall;
 
         IMovable typeOfMovement;
 
@@ -30,6 +33,8 @@ namespace Game
             if (collision.gameObject.tag == "Bullet")
             {
                 GameManager.Get().AddScore();
+
+                onDestroyBall?.Invoke();
 
                 collision.gameObject.SetActive(false);
                 Destroy(gameObject);

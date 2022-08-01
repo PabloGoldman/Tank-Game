@@ -7,9 +7,14 @@ namespace Game
     {
         TMP_Text textField;
 
-        void Start()
+        private void Awake()
         {
             textField = GetComponent<TMP_Text>();
+        }
+
+        void Start()
+        {
+            textField.text = "Score: " + GameManager.Get().Score;
         }
 
         public void SetScore()
