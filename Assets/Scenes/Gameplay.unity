@@ -8100,8 +8100,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.3998463, z: 2.51}
-  m_Center: {x: 0, y: 0.1300768, z: 0}
+  m_Size: {x: 2, y: 1.4897294, z: 2.1411905}
+  m_Center: {x: 0, y: 0.08513522, z: -0.08938119}
 --- !u!1001 &1234183396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10370,21 +10370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e10bc522b9c2641a69aa252b3e2313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onReachTime:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114034172}
-        m_TargetAssemblyTypeName: Game.GameManager, Assembly-CSharp
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1696379080
 GameObject:
   m_ObjectHideFlags: 0
