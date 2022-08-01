@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEngine.Events;
 using UnityEngine;
 
 //https://www.youtube.com/watch?v=o0j7PdU88a4&ab_channel=SingleSaplingGames
@@ -8,9 +7,6 @@ namespace Game
 {
     public class CountdownTimer : MonoBehaviour
     {
-        public UnityEvent onReachTime;
-        public UnityEvent onTimeDown;
-
         TMP_Text textField;
 
         float currentTime = 0;
@@ -29,7 +25,7 @@ namespace Game
 
             if (currentTime < 0)
             {
-                onReachTime?.Invoke();
+                GameManager.Get().GameOver();
             }
         }
     }
