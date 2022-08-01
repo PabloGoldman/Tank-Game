@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game
 {
@@ -10,9 +9,6 @@ namespace Game
         [SerializeField] BallsData data;
 
         IMovable typeOfMovement;
-
-        public UnityEvent onBallDestroy;
-        public UnityEvent onPlayerCollision;
 
         private void Start()
         {
@@ -33,14 +29,15 @@ namespace Game
         {
             if (collision.gameObject.tag == "Bullet")
             {
-                onBallDestroy?.Invoke();
+                GameManager.Get().AddScore();
+
                 collision.gameObject.SetActive(false);
                 Destroy(gameObject);
             }
 
             if (collision.gameObject.tag == "Player")
             {
-                onPlayerCollision?.Invoke();
+                GameManager.Get().GameOver();
             }
         }
     }
