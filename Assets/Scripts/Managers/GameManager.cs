@@ -23,6 +23,11 @@ namespace Game
             score++;
         }
 
+        public void ResetScore()
+        {
+            score = 0;
+        }
+
         public void GameOver()
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);

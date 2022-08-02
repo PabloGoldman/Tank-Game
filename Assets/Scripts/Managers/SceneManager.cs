@@ -13,7 +13,6 @@ namespace Game
             Time.timeScale = 1;
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
         }
-
         public void ReloadScene()
         {
             Time.timeScale = 1;
