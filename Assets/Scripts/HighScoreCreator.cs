@@ -22,7 +22,6 @@ namespace Game
         private void Start()
         {
             SetHighScores();
-            
         }
 
         private void SetHighScores()

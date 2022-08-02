@@ -4,20 +4,20 @@ namespace Game
 {
     public class MoveTowardsTankBehaviour : IMovable
     {
-        GameObject tank;
-        GameObject ball;
+        Transform tank;
+        Transform ball;
         float speed;
 
-        public MoveTowardsTankBehaviour(GameObject tank, GameObject ball, float speed)
+        public MoveTowardsTankBehaviour(Transform tank, Transform ball, float speed)
         {
             this.tank = tank;
             this.ball = ball;
             this.speed = speed;
         }
 
-        public void MoveBehaviour()
+        public void Move()
         {
-            ball.transform.position = Vector3.MoveTowards(ball.transform.position, tank.transform.position, speed * Time.deltaTime);
+            ball.position = Vector3.MoveTowards(ball.position, tank.position, speed * Time.deltaTime);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Game
 {
     public class BallBehaviour : MonoBehaviour
     {
-        [SerializeField] GameObject tankObject;
+        [SerializeField] Transform tankTransform;
 
         [SerializeField] BallsData data;
 
@@ -18,14 +18,14 @@ namespace Game
             int random = Random.Range(1, 3);
 
             if (random == 1)
-                typeOfMovement = new MoveTowardsTankBehaviour(tankObject, gameObject, data.speedTowardsTank);
+                typeOfMovement = new MoveTowardsTankBehaviour(tankTransform, transform, data.speedTowardsTank);
             else
-                typeOfMovement = new BounceBehaviour(gameObject, data.upDownSpeed);
+                typeOfMovement = new BounceBehaviour(transform, data.upDownSpeed);
         }
 
         private void Update()
         {
-            typeOfMovement.MoveBehaviour();
+            typeOfMovement.Move();
         }
 
         private void OnCollisionEnter(Collision collision)
