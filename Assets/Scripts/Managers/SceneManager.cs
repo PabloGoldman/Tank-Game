@@ -12,7 +12,13 @@ namespace Game
             onChangeScene?.Invoke();
             Time.timeScale = 1;
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+
+            if (sceneIndex == 0)
+            {
+                GameManager.Get().ResetScore();
+            }
         }
+
         public void ReloadScene()
         {
             Time.timeScale = 1;

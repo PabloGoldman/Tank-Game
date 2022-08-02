@@ -22,7 +22,7 @@ namespace Game
         private void Start()
         {
             SetHighScores();
-            GameManager.Get().ResetScore();
+            
         }
 
         private void SetHighScores()
