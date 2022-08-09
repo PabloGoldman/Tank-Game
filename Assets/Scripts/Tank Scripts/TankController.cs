@@ -33,6 +33,8 @@ namespace Game
 
         [SerializeField] ParticleSystem shootFlash;
 
+        Coroutine shootCoroutine;
+
         bool canTurretRotate = true;
 
         private void Start()
@@ -72,7 +74,11 @@ namespace Game
         {
             if (Input.GetMouseButtonDown(0) && canTurretRotate)
             {
-                StartCoroutine(RotateTurretTowardsPointCoroutine());
+                if (shootCoroutine != null)
+                {
+                    StopCoroutine(shootCoroutine);
+                }
+                shootCoroutine = StartCoroutine(RotateTurretTowardsPointCoroutine());
             }
         }
 
@@ -83,6 +89,7 @@ namespace Game
                 reticleTransform.position = input.ReticlePosition;
             }
         }
+
 
         private void HandleAnimations()
         {
